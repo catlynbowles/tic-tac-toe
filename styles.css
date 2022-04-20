@@ -35,15 +35,27 @@ body {
   border: solid blue;
 }
 
-.title-text {
-  font-size: 35px;
-}
+/* .turn-title {
+  margin-bottom: 100px;
+} */
 
 .title-text {
+  font-size: 35px;
   padding-top: 15px;
   margin: 15px;
 }
 
+.game-grid {
+  display: grid;
+  border: solid gray;
+  grid-template-columns: repeat(3, 175px);
+  grid-template-rows: repeat(3, 175px);
+  grid-gap: 0px;
+}
+
+.box {
+  border: solid black;
+}
 /*~~~ player one ~~~*/
 
 /*~~~ player two ~~~*/
