@@ -19,12 +19,7 @@ class Game {
     ]
   }
   setGameBoard() {
-    this.currentPlayer = Math.random() < 0.5 ? '&#129533;' : '&#128025;';
-    if (this.currentPlayer === '&#129533;') {
-      this.currentPlayer = this.playerOne;
-    } else if (this.currentPlayer === '&#128025;') {
-      this.currentPlayer = this.playerTwo;
-    }
+    this.currentPlayer = Math.random() < 0.5 ? this.playerOne : this.playerTwo;
   }
   changeTurn() {
     if (this.currentPlayer === this.playerOne) {
