@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.playerOne = new Player(1, '&#129533;', 0);
     this.playerTwo = new Player(2, '&#128025;', 0);
-    this.currentPlayer= this.playerOne;
+    this.currentPlayer;
     this.defaultGameboard =
     ['', '', '',
      '', '', '',
