@@ -1,7 +1,6 @@
 /*~~~ page rules ~~~*/
 
 body {
-  font-family: 'SpongeBob Font Condensed', sans-serif;
   margin: 0;
 }
 /*~~~ all column styling ~~~*/
@@ -41,10 +40,6 @@ body {
   width: 50%;
   border: solid blue;
 }
-
-/* .turn-title {
-  margin-bottom: 100px;
-} */
 
 .title-text {
   font-size: 35px;
