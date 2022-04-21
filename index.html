@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="http://fonts.cdnfonts.com/css/spongebob-font-condensed" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+  <main class="columns">
+    <section class="player-one-column player-column" id="playerOneColumn">
+      <article class="player-one-contents player-contents" id="playerOneContents">
+        <p class="player-one-icon" id="playerOneIcon" alt="player one icon">&#129533;</p>
+        <h3 class="player-one-wins" id="playerOneWins">0 Wins</h3>
+      </article>
+    </section>
+    <section class="game-display-column" id="gameDisplayColumn">
+      <article class="game-display-contents" id="gameDisplayContents">
+        <h1 class="title-text" id="titleText">Bikini Bottom Tic-Tac-Toe</h1>
+        <h2 class="turn-text" id="turnText">It's Your Turn!</h2>
+        <section class="game-grid" id="gameGrid">
+          <div class="box box-one" id="boxOne"></div>
+          <div class="box box-two" id="boxTwo"></div>
+          <div class="box box-three" id="boxThree"></div>
+          <div class="box box-four" id="boxFour"></div>
+          <div class="box box-five" id="boxFive"></div>
+          <div class="box box-six" id="boxSix"></div>
+          <div class="box box-seven" id="boxSeven"></div>
+          <div class="box box-eight" id="boxEight"></div>
+          <div class="box box-nine" id="boxNine"></div>
+        </section>
+      </article>
+    </section>
+    <section class="player-two-column player-column" id="playerTwoColumn">
+      <article class="player-two-contents player-contents" id="playerTwoContents">
+        <p class="player-two-icon" id="playerTwoIcon" alt="player two icon">&#128025;</p>
+        <!-- will need to update icons -->
+        <h3 class="player-two-wins" id="playerTwoWins">0 Wins</h3>
+      </article>
+    </section>
+  </main>
+  <script type="text/javascript" src="Player.js"></script>
+  <script type="text/javascript" src="Game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
