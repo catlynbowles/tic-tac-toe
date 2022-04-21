@@ -25,6 +25,13 @@ body {
   border: solid pink;
 }
 
+.player-one-icon {
+  font-size: 50px;
+}
+
+.player-two-icon {
+  font-size: 50px;
+}
 
 /*~~~ game column styling ~~~*/
 
