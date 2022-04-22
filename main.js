@@ -8,17 +8,22 @@ var game = new Game;
 // Query Selectors
 var gameGrid = document.getElementById('gameGrid');
 var turnText = document.getElementById('turnText');
+var resetButton = document.getElementById('resetButton')
 
 // Event Listeners
 window.addEventListener('load', pageLoadGame);
 gameGrid.addEventListener('click', verifyValidPlay);
-
+resetButton.addEventListener('click', pageReload)
 
 
 // Functions
 function pageLoadGame() {
   game.setGameBoard();
   updateToken()
+}
+
+function pageReload() {
+  pageReload = location.reload();
 }
 
 function verifyValidPlay() {
