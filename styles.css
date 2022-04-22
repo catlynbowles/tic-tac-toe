@@ -1,7 +1,11 @@
 /*~~~ page rules ~~~*/
 
 body {
+  background-image: url("assets/sarah-lee-QURU8IY-RaI-unsplash.jpg");
+  background-size: cover;
   margin: 0;
+  font-family: 'SpongeBob Font Condensed', sans-serif;
+
 }
 /*~~~ all column styling ~~~*/
 
@@ -24,10 +28,7 @@ body {
   border: solid pink;
 }
 
-.player-one-icon {
-  font-size: 50px;
-}
-
+.player-one-icon,
 .player-two-icon {
   font-size: 50px;
 }
@@ -42,17 +43,28 @@ body {
 }
 
 .title-text {
-  font-size: 35px;
+  font-size: 60px;
   padding-top: 15px;
   margin: 15px;
+  color: #fff;
+  text-shadow:
+  0 0 5px #fff700, 0 0 10px #fff700,
+  0 0 20px #fff700, 0 0 40px #fff700;
 }
 
 .game-grid {
   display: grid;
   border: solid gray;
-  grid-template-columns: repeat(3, 175px);
-  grid-template-rows: repeat(3, 175px);
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
   grid-gap: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.resetButton {
+  padding-top: 20px;
+  padding: 10px;
 }
 
 .box {

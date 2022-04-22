@@ -3,19 +3,19 @@ class Game {
     this.playerOne = new Player(1, '&#129533;', 0);
     this.playerTwo = new Player(2, '&#128025;', 0);
     this.currentPlayer;
-    this.defaultGameboard =
-    ['', '', '',
-     '', '', '',
-    '', '', ''];
+    // this.defaultGameboard =
+    // ['', '', '',
+    //  '', '', '',
+    // '', '', ''];
     this.winningNumbers = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [2, 4, 6],
-      [0, 4, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8]
+      ['boxOne', 'boxTwo', 'boxThree'],
+      ['boxFour', 'boxFive', 'boxSix'],
+      ['boxSeven', 'boxEight', 'boxNine'],
+      ['boxThree', 'boxFive', 'boxSeven'],
+      ['boxOne', 'boxFive', 'boxNine'],
+      ['boxOne', 'boxFour', 'boxSeven'],
+      ['boxTwo', 'boxFive', 'boxEight'],
+      ['boxThree', 'boxSix', 'boxNine']
     ]
   }
   setGameBoard() {
