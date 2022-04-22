@@ -33,10 +33,10 @@ function verifyValidPlay() {
     selectedBoxes.push(event.target);
 
     if (game.currentPlayer.token === '&#129533;') {
-      playerOneBoxes.push(event.target);
+      playerOneBoxes.push(event.target.id);
     }
       else if (game.currentPlayer.token === '&#128025;') {
-      playerTwoBoxes.push(event.target);
+      playerTwoBoxes.push(event.target.id);
     }
     checkWin();
   }
@@ -53,14 +53,16 @@ function alertBoxSelected() {
 function updateToken() {
   if (game.currentPlayer === game.playerOne) {
     turnText.innerHTML = '&#129533;\'s turn!'
-  } else if (game.currentPlayer === game.playerTwo) {
+  }
+    else if (game.currentPlayer === game.playerTwo) {
     turnText.innerHTML = '&#128025;\'s turn!'
   }
 }
 
 function checkWin() {
-  for (let i = 0; i < playerOneBoxes.length; i++) {
-    if (playerOneBoxes.includes(game.winningNumbers))
-    console.log('bob')
-  }
+  for (var i = 0; i < game.winningNumbers.length; i++) {
+    if (playerOneBoxes.includes(game.winningNumbers[i])) {
+      console.log('bob')
+      }
+    }
   }
