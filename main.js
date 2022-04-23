@@ -46,14 +46,14 @@ function clearBoxes() {
 
 function verifyValidPlay() {
 
-  if (selectedBoxes.includes(event.target)) {
+  if (selectedBoxes.includes(event.target.id)) {
     alertBoxSelected();
   }
 
     else {
     event.target.innerHTML += game.currentPlayer.token;
 
-    selectedBoxes.push(event.target);
+    selectedBoxes.push(event.target.id);
 
     if (game.currentPlayer.token === '&#129533;') {
       playerOneBoxes.push(event.target.id);
@@ -69,7 +69,7 @@ function verifyValidPlay() {
 }
 
 function alertBoxSelected() {
-  alert('This play has already been made! Please select available option.');
+  alert(`Aye, captain! It's been done before. Make a fresh move!`);
   !game.changeTurn();
 }
 
@@ -85,7 +85,7 @@ function updateToken() {
 function checkDraw() {
   if (selectedBoxes.length === 9) {
     titleText.innerText = `IT'S A DRAW!`
-    turnText.innerText = `Press reset to start a new game. I'M READY!`
+    turnText.innerText = `Press RESET to start a new game. I'M READY!`
     resetButton.classList.remove('hidden')
   }
 }

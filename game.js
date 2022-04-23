@@ -32,6 +32,3 @@ class Game {
 }
 
 // this.win = false;
-// this.draw = false;
-// this.reset = false;
-// do these properties belong here, to be updated, or is this unnecessary
