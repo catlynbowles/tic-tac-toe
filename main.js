@@ -23,8 +23,6 @@ gameGrid.addEventListener('click', verifyValidPlay);
 
 // Functions
 function pageLoadGame() {
-  game.playerOne.wins = 0;
-  game.playerTwo.wins = 0;
   game.setFirstPlayer();
   updateToken();
 }
@@ -89,9 +87,11 @@ function updateToken() {
 
 function checkDraw() {
   if (selectedBoxes.length === 9) {
-    titleText.innerText = `IT'S A DRAW!`
-    turnText.innerText = `GET READY FOR A NEW GAME!`
-    resetGameBoard()
+    titleText.innerText = `IT'S A DRAW!`;
+    turnText.innerText = `GET READY FOR A NEW GAME!`;
+    gameGrid.removeEventListener('click', verifyValidPlay);
+    gameGrid.style.cursor = 'not-allowed';
+    setTimeout(resetGameBoard, 3000)
   }
 }
 
