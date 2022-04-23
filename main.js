@@ -1,19 +1,23 @@
 // Global Variables
-var playerOneBoxes = [];
-var playerTwoBoxes = [];
-var selectedBoxes = [];
 
+// Variables
 var game = new Game;
 
-// Query Selectors
+var playerOneBoxes = game.playerOne.playerOneBoxes
+var playerTwoBoxes = game.playerTwo.playerTwoBoxes
+var selectedBoxes = game.selectedBoxes;
+
 var gameGrid = document.getElementById('gameGrid');
+var gridBoxes = document.getElementsByClassName('.box')
 var turnText = document.getElementById('turnText');
-var resetButton = document.getElementById('resetButton')
+var resetButton = document.getElementById('resetButton');
+var titleText = document.getElementById('titleText')
+console.log(gridBoxes)
 
 // Event Listeners
 window.addEventListener('load', pageLoadGame);
 gameGrid.addEventListener('click', verifyValidPlay);
-resetButton.addEventListener('click', pageReload)
+resetButton.addEventListener('click', newGame)
 
 
 // Functions
@@ -22,8 +26,14 @@ function pageLoadGame() {
   updateToken()
 }
 
-function pageReload() {
-  pageReload = location.reload();
+function newGame() {
+  playerOneBoxes.length = 0;
+  playerTwoBoxes.length = 0;
+  selectedBoxes.length = 0;
+}
+
+function clearBox() {
+
 }
 
 function verifyValidPlay() {
@@ -43,11 +53,11 @@ function verifyValidPlay() {
       else if (game.currentPlayer.token === '&#128025;') {
       playerTwoBoxes.push(event.target.id);
     }
-    checkWin();
   }
-
     game.changeTurn();
     updateToken();
+    checkDraw();
+    checkWin();
 }
 
 function alertBoxSelected() {
@@ -61,6 +71,13 @@ function updateToken() {
   }
     else if (game.currentPlayer === game.playerTwo) {
     turnText.innerHTML = '&#128025;\'s turn!'
+  }
+}
+
+function checkDraw() {
+  if (selectedBoxes.length === 9) {
+    titleText.innerText = `IT'\S A DRAW!`
+    turnText.innerText = `Press reset to start a new game. I'M READY!`
   }
 }
 

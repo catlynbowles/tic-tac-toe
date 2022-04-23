@@ -7,6 +7,7 @@ class Game {
     // ['', '', '',
     //  '', '', '',
     // '', '', ''];
+    this.selectedBoxes = [];
     this.winningNumbers = [
       ['boxOne', 'boxTwo', 'boxThree'],
       ['boxFour', 'boxFive', 'boxSix'],
