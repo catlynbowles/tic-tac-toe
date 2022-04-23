@@ -88,7 +88,7 @@ function updateToken() {
 function checkDraw() {
   if (selectedBoxes.length === 9) {
     titleText.innerText = `IT'S A DRAW!`;
-    turnText.innerText = `GET READY FOR A NEW GAME!`;
+    turnText.innerText = `GET READY FOR THE NEXT GAME IN 3... 2... 1...`;
     gameGrid.removeEventListener('click', verifyValidPlay);
     gameGrid.style.cursor = 'not-allowed';
     setTimeout(resetGameBoard, 3000)
@@ -106,8 +106,8 @@ function checkWin() {
   }
 
 function oneWins() {
-  titleText.innerText = `SpongeBob Is This Game's Winner!`;
-  turnText.innerText = 'Get Ready For The Next Game!'
+  titleText.innerText = `SPONGEBOB WINS!`;
+  turnText.innerText = 'GET READY FOR THE NEXT GAME IN 3... 2... 1...'
   game.playerOneWins();
   playerOneWins.innerText = `${game.playerOne.wins} Wins`;
   gameGrid.removeEventListener('click', verifyValidPlay);
@@ -116,8 +116,8 @@ function oneWins() {
 }
 
 function twoWins() {
-  titleText.innerText = `Squidward Is This Game's Winner!`;
-  turnText.innerText = 'Get Ready For The Next Game!';
+  titleText.innerText = `SQUIDWARD WINS!`;
+  turnText.innerText = 'GET READY FOR THE NEXT GAME IN 3... 2... 1...';
   game.playerTwoWins();
   playerTwoWins.innerText = `${game.playerTwo.wins} Wins`
   gameGrid.removeEventListener('click', verifyValidPlay)
