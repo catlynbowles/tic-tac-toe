@@ -3,10 +3,10 @@ class Game {
     this.playerOne = new Player(1, '&#129533;', 0);
     this.playerTwo = new Player(2, '&#128025;', 0);
     this.currentPlayer;
-    this.defaultGameboard =
-    ['', '', '',
-     '', '', '',
-    '', '', ''];
+    // this.defaultGameboard =
+    // ['', '', '',
+    //  '', '', '',
+    // '', '', ''];
     this.selectedBoxes = [];
     this.winningNumbers = [
       ['1','2','3'],
@@ -21,7 +21,7 @@ class Game {
       ['6','5','4'],
       ['5','6','4'],
       ['4','6','5'],
-      ['5','4','5'],
+      ['6','4','5'],
 
       ['7','8','9'],
       ['7','9','8'],
@@ -83,5 +83,3 @@ class Game {
     this.playerTwo.wins += 1;
   }
 }
-
-// this.win = false;
