@@ -3,13 +3,13 @@ class Game {
     this.playerOne = new Player(1, '&#129533;', 0);
     this.playerTwo = new Player(2, '&#128025;', 0);
     this.currentPlayer;
-    // this.defaultGameboard =
-    // ['', '', '',
-    //  '', '', '',
-    // '', '', ''];
+    this.defaultGameboard =
+    ['', '', '',
+     '', '', '',
+    '', '', ''];
     this.selectedBoxes = [];
     this.winningNumbers = [
-      ['boxOne', 'boxTwo', 'boxThree'],
+      ['1','2','3'],
       ['boxFour', 'boxFive', 'boxSix'],
       ['boxSeven', 'boxEight', 'boxNine'],
       ['boxThree', 'boxFive', 'boxSeven'],
