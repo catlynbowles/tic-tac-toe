@@ -98,17 +98,15 @@ function checkDraw() {
 function checkWin() {
   for (var i = 0; i < game.winningNumbers.length; i++) {
     if (playerOneBoxes.toString().includes(game.winningNumbers[i].toString())) {
-      console.log('Player One Wins')
       oneWins()
     } else if (playerTwoBoxes.toString().includes(game.winningNumbers[i].toString())) {
-      console.log('Player Two Wins')
       twoWins()
       }
     }
   }
 
 function oneWins() {
-  titleText.innerText = 'SpongeBob Is The Game Winner!';
+  titleText.innerText = `SpongeBob Is This Game's Winner!`;
   turnText.innerText = 'Get Ready For The Next Game!'
   game.playerOneWins();
   playerOneWins.innerText = `${game.playerOne.wins} Wins`;
@@ -118,7 +116,7 @@ function oneWins() {
 }
 
 function twoWins() {
-  titleText.innerText = 'Squidward Is The Game Winner!';
+  titleText.innerText = `Squidward Is This Game's Winner!`;
   turnText.innerText = 'Get Ready For The Next Game!';
   game.playerTwoWins();
   playerTwoWins.innerText = `${game.playerTwo.wins} Wins`

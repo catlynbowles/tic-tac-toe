@@ -3,10 +3,6 @@ class Game {
     this.playerOne = new Player(1, '&#129533;', 0);
     this.playerTwo = new Player(2, '&#128025;', 0);
     this.currentPlayer;
-    // this.defaultGameboard =
-    // ['', '', '',
-    //  '', '', '',
-    // '', '', ''];
     this.selectedBoxes = [];
     this.winningNumbers = [
       ['1','2','3'],
