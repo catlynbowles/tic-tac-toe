@@ -1,4 +1,4 @@
-/*~~~ page rules ~~~*/
+/*~~~ page styling ~~~*/
 
 body {
   background-image: url("assets/sarah-lee-QURU8IY-RaI-unsplash.jpg");
@@ -8,9 +8,6 @@ body {
 
 }
 
-h3 {
-  font-size: 25px;
-}
 
 /*~~~ all column styling ~~~*/
 
@@ -20,11 +17,16 @@ h3 {
   height: 100vh;
 }
 
+
+/*~~~ player columns styling ~~~*/
+
+h3 {
+  font-size: 25px;
+}
+
 .player-contents {
   padding: 30px;
 }
-
-/*~~~ player's column styling ~~~*/
 
 .player-column {
   display: flex;
@@ -109,6 +111,10 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .button-container {
