@@ -8,11 +8,14 @@ var playerTwoBoxes = game.playerTwo.playerTwoBoxes
 var selectedBoxes = game.selectedBoxes;
 
 var gameGrid = document.getElementById('gameGrid');
-var gridBoxes = document.getElementsByClassName('box')
-var boxOne = document.getElementById('boxOne')
+var gridBoxes = document.getElementsByClassName('box');
+var boxOne = document.getElementById('boxOne');
 var turnText = document.getElementById('turnText');
 var resetButton = document.getElementById('resetButton');
-var titleText = document.getElementById('titleText')
+var titleText = document.getElementById('titleText');
+var playerOneWins = document.getElementById('playerOneWins');
+var playerTwoWins = document.getElementById('playerTwoWins')
+
 
 // Event Listeners
 window.addEventListener('load', pageLoadGame);
@@ -45,39 +48,42 @@ function clearBoxes() {
 }
 
 function verifyValidPlay() {
-
-  if (selectedBoxes.includes(event.target)) {
+  if (selectedBoxes.includes(event.target.id)) {
     alertBoxSelected();
-  }
-
-    else {
-    event.target.innerHTML += game.currentPlayer.token;
-
-    selectedBoxes.push(event.target);
-
-    if (game.currentPlayer.token === '&#129533;') {
-      playerOneBoxes.push(event.target.id);
+  } else {
+      checkSelectedBox()
     }
-      else if (game.currentPlayer.token === '&#128025;') {
-      playerTwoBoxes.push(event.target.id);
-    }
-  }
-    game.changeTurn();
-    updateToken();
-    checkDraw();
+}
+
+function checkSelectedBox() {
+  event.target.innerHTML += game.currentPlayer.token;
+  storeSelectedChoices();
+  game.changeTurn();
+  updateToken();
+  checkDraw();
+  if (selectedBoxes.length >= 5) {
     checkWin();
+  }
 }
 
 function alertBoxSelected() {
-  alert('This play has already been made! Please select available option.');
+  alert(`Aye, captain! It's been done before. Make a fresh move!`);
   !game.changeTurn();
+}
+
+function storeSelectedChoices() {
+  selectedBoxes.push(event.target.id);
+  if (game.currentPlayer.token === '&#129533;') {
+    playerOneBoxes.push(event.target.id);
+  } else if (game.currentPlayer.token === '&#128025;') {
+    playerTwoBoxes.push(event.target.id);
+  }
 }
 
 function updateToken() {
   if (game.currentPlayer === game.playerOne) {
     turnText.innerHTML = '&#129533;\'s turn!'
-  }
-    else if (game.currentPlayer === game.playerTwo) {
+  } else if (game.currentPlayer === game.playerTwo) {
     turnText.innerHTML = '&#128025;\'s turn!'
   }
 }
@@ -85,15 +91,36 @@ function updateToken() {
 function checkDraw() {
   if (selectedBoxes.length === 9) {
     titleText.innerText = `IT'S A DRAW!`
-    turnText.innerText = `Press reset to start a new game. I'M READY!`
+    turnText.innerText = `I'M READY FOR A NEW GAME!`
     resetButton.classList.remove('hidden')
   }
 }
 
 function checkWin() {
   for (var i = 0; i < game.winningNumbers.length; i++) {
-    if (playerOneBoxes.includes(game.winningNumbers[i])) {
-      console.log('bob')
+    if (playerOneBoxes.toString().includes(game.winningNumbers[i].toString())) {
+      console.log('Player One Wins')
+      oneWins()
+    } else if (playerTwoBoxes.toString().includes(game.winningNumbers[i].toString())) {
+      console.log('Player Two Wins')
+      twoWins()
       }
     }
   }
+
+function oneWins() {
+  titleText.innerText = 'SpongeBob Wins!';
+  game.playerOneWins();
+  playerOneWins.innerText = `${game.playerOne.wins} Wins`
+
+}
+
+function twoWins() {
+  titleText.innerText = 'Squidward Wins!';
+  game.playerTwoWins();
+  playerTwoWins.innerText = `${game.playerTwo.wins} Wins`
+}
+
+// function stopGame() {
+//
+// }
