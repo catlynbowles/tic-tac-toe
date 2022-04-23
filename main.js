@@ -3,24 +3,22 @@
 // Variables
 var game = new Game;
 
-var playerOneBoxes = game.playerOne.playerOneBoxes
-var playerTwoBoxes = game.playerTwo.playerTwoBoxes
+var playerOneBoxes = game.playerOne.playerOneBoxes;
+var playerTwoBoxes = game.playerTwo.playerTwoBoxes;
 var selectedBoxes = game.selectedBoxes;
 
 var gameGrid = document.getElementById('gameGrid');
 var gridBoxes = document.getElementsByClassName('box');
 var boxOne = document.getElementById('boxOne');
 var turnText = document.getElementById('turnText');
-var resetButton = document.getElementById('resetButton');
 var titleText = document.getElementById('titleText');
 var playerOneWins = document.getElementById('playerOneWins');
-var playerTwoWins = document.getElementById('playerTwoWins')
+var playerTwoWins = document.getElementById('playerTwoWins');
 
 
 // Event Listeners
 window.addEventListener('load', pageLoadGame);
 gameGrid.addEventListener('click', verifyValidPlay);
-resetButton.addEventListener('click', resetDraw)
 
 
 // Functions
@@ -31,12 +29,13 @@ function pageLoadGame() {
   updateToken();
 }
 
-function resetDraw() {
+function resetGameBoard() {
   playerOneBoxes.length = 0;
   playerTwoBoxes.length = 0;
   selectedBoxes.length = 0;
-  titleText.innerText = `Bikini Bottom Tic-Tac-Toe`
-  resetButton.classList.add('hidden')
+  titleText.innerText = `Bikini Bottom Tic-Tac-Toe`;
+  gameGrid.addEventListener('click', verifyValidPlay);
+  gameGrid.style.cursor = 'pointer';
   clearBoxes();
   pageLoadGame();
 }
@@ -51,7 +50,7 @@ function verifyValidPlay() {
   if (selectedBoxes.includes(event.target.id)) {
     alertBoxSelected();
   } else {
-      checkSelectedBox()
+      checkSelectedBox();
     }
 }
 
@@ -91,8 +90,8 @@ function updateToken() {
 function checkDraw() {
   if (selectedBoxes.length === 9) {
     titleText.innerText = `IT'S A DRAW!`
-    turnText.innerText = `I'M READY FOR A NEW GAME!`
-    resetButton.classList.remove('hidden')
+    turnText.innerText = `GET READY FOR A NEW GAME!`
+    resetGameBoard()
   }
 }
 
@@ -109,16 +108,23 @@ function checkWin() {
   }
 
 function oneWins() {
-  titleText.innerText = 'SpongeBob Wins!';
+  titleText.innerText = 'SpongeBob Is The Game Winner!';
+  turnText.innerText = 'Get Ready For The Next Game!'
   game.playerOneWins();
-  playerOneWins.innerText = `${game.playerOne.wins} Wins`
-
+  playerOneWins.innerText = `${game.playerOne.wins} Wins`;
+  gameGrid.removeEventListener('click', verifyValidPlay);
+  gameGrid.style.cursor = 'not-allowed';
+  setTimeout(resetGameBoard, 3000)
 }
 
 function twoWins() {
-  titleText.innerText = 'Squidward Wins!';
+  titleText.innerText = 'Squidward Is The Game Winner!';
+  turnText.innerText = 'Get Ready For The Next Game!';
   game.playerTwoWins();
   playerTwoWins.innerText = `${game.playerTwo.wins} Wins`
+  gameGrid.removeEventListener('click', verifyValidPlay)
+  gameGrid.style.cursor = 'not-allowed';
+  setTimeout(resetGameBoard, 3000)
 }
 
 // function stopGame() {
