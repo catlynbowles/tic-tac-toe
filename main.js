@@ -1,6 +1,4 @@
 // Global Variables
-
-// Variables
 var game = new Game;
 
 var playerOneBoxes = game.playerOne.playerOneBoxes;
@@ -31,6 +29,7 @@ function resetGameBoard() {
   playerOneBoxes.length = 0;
   playerTwoBoxes.length = 0;
   selectedBoxes.length = 0;
+  // ^^ should this be in the Data Model?
   titleText.innerText = `Bikini Bottom Tic-Tac-Toe`;
   gameGrid.addEventListener('click', verifyValidPlay);
   gameGrid.style.cursor = 'pointer';
@@ -47,6 +46,7 @@ function clearBoxes() {
 function verifyValidPlay() {
   if (selectedBoxes.includes(event.target.id)) {
     alertBoxSelected();
+    !game.changeTurn()
   } else {
       checkSelectedBox();
     }
@@ -124,7 +124,3 @@ function twoWins() {
   gameGrid.style.cursor = 'not-allowed';
   setTimeout(resetGameBoard, 3000)
 }
-
-// function stopGame() {
-//
-// }
