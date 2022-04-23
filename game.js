@@ -19,7 +19,7 @@ class Game {
       ['boxThree', 'boxSix', 'boxNine']
     ]
   }
-  setGameBoard() {
+  setFirstPlayer() {
     this.currentPlayer = Math.random() < 0.5 ? this.playerOne : this.playerTwo;
   }
   changeTurn() {

@@ -8,32 +8,37 @@ var playerTwoBoxes = game.playerTwo.playerTwoBoxes
 var selectedBoxes = game.selectedBoxes;
 
 var gameGrid = document.getElementById('gameGrid');
-var gridBoxes = document.getElementsByClassName('.box')
+var gridBoxes = document.getElementsByClassName('box')
+var boxOne = document.getElementById('boxOne')
 var turnText = document.getElementById('turnText');
 var resetButton = document.getElementById('resetButton');
 var titleText = document.getElementById('titleText')
-console.log(gridBoxes)
 
 // Event Listeners
 window.addEventListener('load', pageLoadGame);
 gameGrid.addEventListener('click', verifyValidPlay);
-resetButton.addEventListener('click', newGame)
+resetButton.addEventListener('click', resetDraw)
 
 
 // Functions
 function pageLoadGame() {
-  game.setGameBoard();
-  updateToken()
+  game.setFirstPlayer();
+  updateToken();
 }
 
-function newGame() {
+function resetDraw() {
   playerOneBoxes.length = 0;
   playerTwoBoxes.length = 0;
   selectedBoxes.length = 0;
+  titleText.innerText = `Bikini Bottom Tic-Tac-Toe`
+  clearBoxes();
+  pageLoadGame();
 }
 
-function clearBox() {
-
+function clearBoxes() {
+  for (var i = 0; i < gridBoxes.length; i++) {
+    gridBoxes[i].innerHTML = '';
+  }
 }
 
 function verifyValidPlay() {
@@ -76,7 +81,7 @@ function updateToken() {
 
 function checkDraw() {
   if (selectedBoxes.length === 9) {
-    titleText.innerText = `IT'\S A DRAW!`
+    titleText.innerText = `IT'S A DRAW!`
     turnText.innerText = `Press reset to start a new game. I'M READY!`
   }
 }
