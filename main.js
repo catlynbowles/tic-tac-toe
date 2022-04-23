@@ -22,6 +22,8 @@ resetButton.addEventListener('click', resetDraw)
 
 // Functions
 function pageLoadGame() {
+  game.playerOne.wins = 0;
+  game.playerTwo.wins = 0;
   game.setFirstPlayer();
   updateToken();
 }
@@ -31,6 +33,7 @@ function resetDraw() {
   playerTwoBoxes.length = 0;
   selectedBoxes.length = 0;
   titleText.innerText = `Bikini Bottom Tic-Tac-Toe`
+  resetButton.classList.add('hidden')
   clearBoxes();
   pageLoadGame();
 }
@@ -83,6 +86,7 @@ function checkDraw() {
   if (selectedBoxes.length === 9) {
     titleText.innerText = `IT'S A DRAW!`
     turnText.innerText = `Press reset to start a new game. I'M READY!`
+    resetButton.classList.remove('hidden')
   }
 }
 

@@ -4,6 +4,6 @@ class Player {
     this.token = token;
     this.playerOneBoxes = [];
     this.playerTwoBoxes = [];
-    this.wins =0;
+    this.wins = 0;
   }
 }

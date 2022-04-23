@@ -113,6 +113,10 @@ button {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
