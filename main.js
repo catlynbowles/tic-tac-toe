@@ -21,7 +21,7 @@ gameGrid.addEventListener('click', verifyValidPlay);
 
 // Functions
 function loadNewGame() {
-  game.setFirstPlayer();
+  game.setPlayerTurn();
   updateToken();
 };
 
@@ -56,7 +56,7 @@ function checkSelectedBox() {
   updateToken();
   checkDraw();
   if (selectedBoxes.length >= 5) {
-   checkWin();
+   game.checkWin();
   };
 };
 
@@ -88,19 +88,6 @@ function checkDraw() {
     disableGridReset();
   };
 };
-
-function checkWin() {
-  for (var i = 0; i < game.winningNumbers.length; i++) {
-    let resultOne = game.winningNumbers[i].every(i => playerOneBoxes.includes(i))
-    let resultTwo = game.winningNumbers[i].every(i => playerTwoBoxes.includes(i))
-      if (resultOne === true) {
-        oneWins();
-    }
-      if (resultTwo === true) {
-        twoWins();
-    }
-  }
-}
 
 function oneWins() {
   game.playerOneWins();
