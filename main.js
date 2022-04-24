@@ -89,16 +89,6 @@ function checkDraw() {
   };
 };
 
-// function checkWin() {
-//   for (var i = 0; i < game.winningNumbers.length; i++) {
-//     if (playerOneBoxes.toString().includes(game.winningNumbers[i])) {
-//       oneWins();
-//     } else if (playerTwoBoxes.toString().includes(game.winningNumbers[i])) {
-//       twoWins();
-//     };
-//   };
-// };
-
 function checkWin() {
   for (var i = 0; i < game.winningNumbers.length; i++) {
     let resultOne = game.winningNumbers[i].every(i => playerOneBoxes.includes(i))
@@ -111,7 +101,6 @@ function checkWin() {
     }
   }
 }
-
 
 function oneWins() {
   game.playerOneWins();
