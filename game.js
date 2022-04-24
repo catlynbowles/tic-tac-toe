@@ -34,6 +34,15 @@ class Game {
     }
   };
 
+  storeSelectedChoices() {
+    selectedBoxes.push(event.target.id);
+    if (this.currentPlayer.token === '&#129533;') {
+      playerOneBoxes.push(event.target.id);
+    } else if (this.currentPlayer.token === '&#128025;') {
+      playerTwoBoxes.push(event.target.id);
+    };
+  };
+
   checkWin() {
     for (var i = 0; i < this.winningNumbers.length; i++) {
       let resultOne = this.winningNumbers[i].every(i => playerOneBoxes.includes(i));
@@ -56,8 +65,8 @@ class Game {
   };
 
   clearGameData() {
-    game.playerOne.playerOneBoxes.length = 0;
-    game.playerTwo.playerTwoBoxes.length = 0;
+    this.playerOne.playerOneBoxes.length = 0;
+    this.playerTwo.playerTwoBoxes.length = 0;
     this.selectedBoxes.length = 0;
   };
 };

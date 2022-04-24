@@ -51,7 +51,7 @@ function verifyValidPlay() {
 
 function checkSelectedBox() {
   event.target.innerHTML += game.currentPlayer.token;
-  storeSelectedChoices();
+  game.storeSelectedChoices();
   game.changeTurn();
   updateToken();
   checkDraw();
@@ -63,15 +63,6 @@ function checkSelectedBox() {
 function alertBoxSelected() {
   alert(`Aye, captain! It's been done before. Make a fresh move!`);
   !game.changeTurn();
-};
-
-function storeSelectedChoices() {
-  selectedBoxes.push(event.target.id);
-  if (game.currentPlayer.token === '&#129533;') {
-    playerOneBoxes.push(event.target.id);
-  } else if (game.currentPlayer.token === '&#128025;') {
-    playerTwoBoxes.push(event.target.id);
-  };
 };
 
 function updateToken() {
