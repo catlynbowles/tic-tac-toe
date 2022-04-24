@@ -3,79 +3,70 @@ class Game {
     this.playerOne = new Player(1, '&#129533;', 0);
     this.playerTwo = new Player(2, '&#128025;', 0);
     this.currentPlayer;
+    this.gameCount = 0;
     this.selectedBoxes = [];
     this.winningNumbers = [
       ['1','2','3'],
-      ['2','1','3'],
-      ['3','1','2'],
-      ['3','2','1'],
-      ['1','3','2'],
-      ['2','3','1'],
-
       ['4','5','6'],
-      ['5','4','6'],
-      ['6','5','4'],
-      ['5','6','4'],
-      ['4','6','5'],
-      ['6','4','5'],
-
       ['7','8','9'],
-      ['7','9','8'],
-      ['8','9','7'],
-      ['8','7','9'],
-      ['9','8','7'],
-      ['9','7','8'],
-
       ['3','5','7'],
-      ['3','7','5'],
-      ['5','7','3'],
-      ['5','3','7'],
-      ['7','3','5'],
-      ['7','5','3'],
-
       ['1','5','9'],
-      ['1','9','5'],
-      ['5','9','1'],
-      ['5','1','9'],
-      ['9','5','1'],
-      ['9','1','5'],
-
       ['1','4','7'],
-      ['1','7','4'],
-      ['4','7','1'],
-      ['4','1','7'],
-      ['7','4','1'],
-      ['7','1','4'],
-
       ['2','5','8'],
-      ['2','8','5'],
-      ['5','2','8'],
-      ['5','8','2'],
-      ['8','5','2'],
-      ['8','2','5'],
-
       ['3','6','9'],
-      ['3','9','6'],
-      ['6','3','9'],
-      ['6','9','3'],
-      ['9','6','3'],
-      ['9','3','6']
-    ]
-  }
-  setFirstPlayer() {
-    this.currentPlayer = Math.random() < 0.5 ? this.playerOne : this.playerTwo;
-  }
+    ];
+  };
+
+  setPlayerTurn() {
+    this.gameCount += 1;
+    if (this.gameCount % 2 == 0) {
+      this.currentPlayer = this.playerOne;
+    } else {
+      this.currentPlayer = this.playerTwo;
+    };
+  };
+
   changeTurn() {
     if (this.currentPlayer === this.playerOne) {
       this.currentPlayer = this.playerTwo;
     } else if (this.currentPlayer === this.playerTwo) {
       this.currentPlayer = this.playerOne;
     }
-  }
+  };
+
+  storeSelectedChoices() {
+    selectedBoxes.push(event.target.id);
+    if (this.currentPlayer.token === '&#129533;') {
+      playerOneBoxes.push(event.target.id);
+    } else if (this.currentPlayer.token === '&#128025;') {
+      playerTwoBoxes.push(event.target.id);
+    };
+  };
+
+  checkWin() {
+    for (var i = 0; i < this.winningNumbers.length; i++) {
+      let resultOne = this.winningNumbers[i].every(i => playerOneBoxes.includes(i));
+      let resultTwo = this.winningNumbers[i].every(i => playerTwoBoxes.includes(i));
+        if (resultOne === true) {
+          oneWins();
+      }
+        if (resultTwo === true) {
+          twoWins();
+      };
+    };
+  };
+
   playerOneWins() {
     this.playerOne.wins += 1;
-  }
+  };
+
   playerTwoWins() {
     this.playerTwo.wins += 1;
-  }
-}
+  };
+
+  clearGameData() {
+    this.playerOne.playerOneBoxes.length = 0;
+    this.playerTwo.playerTwoBoxes.length = 0;
+    this.selectedBoxes.length = 0;
+  };
+};
