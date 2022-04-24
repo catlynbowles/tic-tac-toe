@@ -4,19 +4,20 @@ class Game {
     this.playerTwo = new Player(2, '&#128025;', 0);
     this.currentPlayer;
     this.selectedBoxes = [];
+    this.win = false;
     this.winningNumbers = [
       ['1','2','3'],
+      ['1','3','2'],
       ['2','1','3'],
+      ['2','3','1'],
       ['3','1','2'],
       ['3','2','1'],
-      ['1','3','2'],
-      ['2','3','1'],
 
       ['4','5','6'],
-      ['5','4','6'],
-      ['6','5','4'],
-      ['5','6','4'],
       ['4','6','5'],
+      ['5','4','6'],
+      ['5','6','4'],
+      ['6','5','4'],
       ['6','4','5'],
 
       ['7','8','9'],
@@ -60,22 +61,43 @@ class Game {
       ['6','9','3'],
       ['9','6','3'],
       ['9','3','6']
-    ]
-  }
+    ];
+  };
   setFirstPlayer() {
     this.currentPlayer = Math.random() < 0.5 ? this.playerOne : this.playerTwo;
-  }
+  };
+
   changeTurn() {
     if (this.currentPlayer === this.playerOne) {
       this.currentPlayer = this.playerTwo;
     } else if (this.currentPlayer === this.playerTwo) {
       this.currentPlayer = this.playerOne;
     }
-  }
+  };
+
+  checkWin() {
+    for (var i = 0; i < game.winningNumbers.length; i++) {
+      if (playerOneBoxes.toString().includes(game.winningNumbers[i].toString())) {
+        oneWins();
+      } else if (playerTwoBoxes.toString().includes(game.winningNumbers[i].toString())) {
+        twoWins();
+      } else if (selectedBoxes.length === 9 && !oneWins() && !twoWins()) {
+          return false;
+      };
+    };
+  };
+
   playerOneWins() {
     this.playerOne.wins += 1;
-  }
+  };
+
   playerTwoWins() {
     this.playerTwo.wins += 1;
-  }
-}
+  };
+
+  clearGameData() {
+    game.playerOne.playerOneBoxes.length = 0;
+    game.playerTwo.playerTwoBoxes.length = 0;
+    this.selectedBoxes.length = 0;
+  };
+};
