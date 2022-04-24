@@ -54,8 +54,9 @@ function checkSelectedBox() {
   storeSelectedChoices();
   game.changeTurn();
   updateToken();
+  checkDraw();
   if (selectedBoxes.length >= 5) {
-    game.checkWin();
+   checkWin();
   };
 };
 
@@ -82,11 +83,35 @@ function updateToken() {
 };
 
 function checkDraw() {
-  if (game.checkWin() === false) {
+  if (selectedBoxes.length === 9) {
     titleText.innerText = `IT'S A DRAW!`;
     disableGridReset();
-  }
+  };
 };
+
+// function checkWin() {
+//   for (var i = 0; i < game.winningNumbers.length; i++) {
+//     if (playerOneBoxes.toString().includes(game.winningNumbers[i])) {
+//       oneWins();
+//     } else if (playerTwoBoxes.toString().includes(game.winningNumbers[i])) {
+//       twoWins();
+//     };
+//   };
+// };
+
+function checkWin() {
+  for (var i = 0; i < game.winningNumbers.length; i++) {
+    let resultOne = game.winningNumbers[i].every(i => playerOneBoxes.includes(i))
+    let resultTwo = game.winningNumbers[i].every(i => playerTwoBoxes.includes(i))
+      if (resultOne === true) {
+        oneWins();
+    }
+      if (resultTwo === true) {
+        twoWins();
+    }
+  }
+}
+
 
 function oneWins() {
   game.playerOneWins();
