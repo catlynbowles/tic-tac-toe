@@ -6,4 +6,8 @@ class Player {
     this.playerTwoBoxes = [];
     this.wins = wins;
   }
+  playerWins() {
+    this.wins += 1;
+  };
+
 }
