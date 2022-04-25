@@ -35,17 +35,21 @@ class Game {
   };
 
   storeSelectedChoices() {
-    selectedBoxes.push(event.target.id);
-    if (this.currentPlayer.token === '&#129533;') {
-      playerOneBoxes.push(event.target.id);
-    } else if (this.currentPlayer.token === '&#128025;') {
-      playerTwoBoxes.push(event.target.id);
+    var chosenBox = event.target.id
+    selectedBoxes.push(chosenBox);
+    if (this.currentPlayer === this.playerOne) {
+      this.playerOne.playerOneBoxes.push(chosenBox);
+    } else if (this.currentPlayer === this.playerTwo) {
+      this.playerTwo.playerTwoBoxes.push(chosenBox);
     };
   };
 
   checkWin() {
     for (var i = 0; i < this.winningNumbers.length; i++) {
-      let resultOne = this.winningNumbers[i].every(i => playerOneBoxes.includes(i));
+      let resultOne = this.winningNumbers[i].every(i => {
+        console.log('i', i)
+        console.log('player one boxes', playerOneBoxes.includes(i))
+        return playerOneBoxes.includes(i)});
       let resultTwo = this.winningNumbers[i].every(i => playerTwoBoxes.includes(i));
         if (resultOne === true) {
           oneWins();
@@ -54,14 +58,6 @@ class Game {
           twoWins();
       };
     };
-  };
-
-  playerOneWins() {
-    this.playerOne.wins += 1;
-  };
-
-  playerTwoWins() {
-    this.playerTwo.wins += 1;
   };
 
   clearGameData() {

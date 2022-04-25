@@ -55,9 +55,7 @@ function checkSelectedBox() {
   game.changeTurn();
   updateToken();
   checkDraw();
-  if (selectedBoxes.length >= 5) {
-   game.checkWin();
-  };
+  game.checkWin();
 };
 
 function alertBoxSelected() {
@@ -81,14 +79,14 @@ function checkDraw() {
 };
 
 function oneWins() {
-  game.playerOneWins();
+  game.playerOne.playerWins();
   titleText.innerText = `SPONGEBOB WINS!`;
   playerOneWins.innerText = `${game.playerOne.wins} Wins`;
   disableGridReset();
 };
 
 function twoWins() {
-  game.playerTwoWins();
+  game.playerTwo.playerWins();
   titleText.innerText = `SQUIDWARD WINS!`;
   playerTwoWins.innerText = `${game.playerTwo.wins} Wins`;
   disableGridReset();
