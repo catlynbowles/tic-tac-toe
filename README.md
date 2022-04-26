@@ -8,8 +8,11 @@ This project was completed as a part of the Turing Front End Development program
 4. If the result of the game is a draw, the grid will become unclickable, the banner will declare a draw, and the game will automatically reload in about three seconds. 
 5. Wins will  be tracked until the page is refreshed. 
 
-![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/98493391/165182328-e4e7a732-636d-4821-a230-9c5a73e37256.gif)
+## What Does it Look Like? 
 
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/98493391/165346709-f007cce6-9949-487e-b0bf-9e7ed12781dd.gif)
+
+- This spongebob themed game uses icon displays on the inner grid to track wins and player moves. Each player has their own column, which tracks their wins. The banner communicates significant events in the game. 
 
 ### Languages Used
 - HTML
