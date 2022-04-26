@@ -19,7 +19,7 @@ class Game {
 
   setPlayerTurn() {
     this.gameCount += 1;
-    if (this.gameCount % 2 == 0) {
+    if (this.gameCount % 2 === 0) {
       this.currentPlayer = this.playerOne;
     } else {
       this.currentPlayer = this.playerTwo;
@@ -35,7 +35,7 @@ class Game {
   };
 
   storeSelectedChoices() {
-    var chosenBox = event.target.id
+    var chosenBox = event.target.id;
     selectedBoxes.push(chosenBox);
     if (this.currentPlayer === this.playerOne) {
       this.playerOne.playerOneBoxes.push(chosenBox);

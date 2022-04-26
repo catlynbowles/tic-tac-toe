@@ -5,6 +5,7 @@ var playerOneBoxes = game.playerOne.playerOneBoxes;
 var playerTwoBoxes = game.playerTwo.playerTwoBoxes;
 var selectedBoxes = game.selectedBoxes;
 
+// Query Selectors
 var gameGrid = document.getElementById('gameGrid');
 var gridBoxes = document.getElementsByClassName('box');
 var boxOne = document.getElementById('boxOne');
@@ -13,11 +14,9 @@ var titleText = document.getElementById('titleText');
 var playerOneWins = document.getElementById('playerOneWins');
 var playerTwoWins = document.getElementById('playerTwoWins');
 
-
 // Event Listeners
 window.addEventListener('load', loadNewGame);
 gameGrid.addEventListener('click', verifyValidPlay);
-
 
 // Functions
 function loadNewGame() {
