@@ -14,6 +14,11 @@ This project was completed as a part of the Turing Front End Development program
 
 - This spongebob themed game uses icon displays on the inner grid to track wins and player moves. Each player has their own column, which tracks their wins. The banner communicates significant events in the game. 
 
+### To use Locally: 
+- Clone this repo
+- `cd` into the directory
+- Run the command `open index.html` in your terminal
+
 ### Languages Used
 - HTML
 - CSS
