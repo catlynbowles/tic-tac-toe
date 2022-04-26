@@ -46,10 +46,7 @@ class Game {
 
   checkWin() {
     for (var i = 0; i < this.winningNumbers.length; i++) {
-      let resultOne = this.winningNumbers[i].every(i => {
-        console.log('i', i)
-        console.log('player one boxes', playerOneBoxes.includes(i))
-        return playerOneBoxes.includes(i)});
+      let resultOne = this.winningNumbers[i].every(i => playerOneBoxes.includes(i));
       let resultTwo = this.winningNumbers[i].every(i => playerTwoBoxes.includes(i));
         if (resultOne === true) {
           oneWins();
