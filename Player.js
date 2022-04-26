@@ -5,9 +5,9 @@ class Player {
     this.playerOneBoxes = [];
     this.playerTwoBoxes = [];
     this.wins = wins;
-  }
+  };
+
   playerWins() {
     this.wins += 1;
   };
-
-}
+};
