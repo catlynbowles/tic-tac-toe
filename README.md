@@ -41,6 +41,8 @@ This project was completed as a part of the Turing Front End Development program
 - `cd` into the directory
 - Run the command `open index.html` in your terminal
 
+- Deployed link: https://catlynbowles.github.io/tic-tac-toe/
+
 ### Languages Used
 - HTML
 - CSS
